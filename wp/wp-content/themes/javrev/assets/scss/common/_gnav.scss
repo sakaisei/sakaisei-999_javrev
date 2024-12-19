@@ -1,0 +1,416 @@
+@use "../global/_setting" as *;
+
+// .gnav__modal
+//=====================================================
+.gnav__modal {
+  width: 100%;
+  height: 52px;
+  //border-bottom: solid 1px #333;
+  position: fixed;
+  top: 0;
+  left: 0;
+  @include z-index-10;
+  background: colors(black);
+  .inner-layout {
+    padding: 0 3.5%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}
+
+// .gnav__logo
+//=====================================================
+.gnav__logo {
+  width: 110px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  position: relative;
+  img {
+    width: 100%;
+  }
+  .lang {
+    position: absolute;
+    font-weight: 700;
+    font-size: 10px;
+    top: 15px;
+    right: -15px;
+  }
+}
+
+// .gnav__hamburger
+//=====================================================
+.gnav__hamburger {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 0;
+  @include z-index-4;
+  //background: colors(primary);
+  gap: 6px 0;
+  transition: 0.3s ease;
+  @include media(pc) {
+    display: none;
+  }
+  &:before {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 2px;
+    background: colors(white);
+    transition: 0.3s ease;
+    border-radius: 3px;
+  }
+  &:after {
+    content: "";
+    display: block;
+    width: 50%;
+    height: 2px;
+    background: colors(white);
+    transition: 0.3s ease;
+    border-radius: 3px;
+  }
+  .border {
+    width: 50%;
+    height: 2px;
+    background: colors(white);
+    transition: 0.3s ease;
+    border-radius: 3px;
+  }
+}
+
+// .gnav__nav
+//=====================================================
+.gnav__nav {
+  position: fixed;
+  @include z-index-3;
+  top: 0;
+  right: -256px;
+  width: 256px;
+  height: 100dvh;
+  background: colors(black);
+  transition: 0.3s ease;
+  overflow-y: scroll;
+  padding-bottom: 50px;
+  @include media(pc) {
+    display: block;
+    position: static;
+    transform: none;
+  }
+  .logo {
+    width: 110px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    margin-left: 15px;
+    img {
+      width: 100%;
+    }
+    .lang {
+      position: absolute;
+      font-weight: 700;
+      font-size: 10px;
+      position: absolute;
+      top: 15px;
+      right: -15px;
+    }
+  }
+  ul {
+    display: flex;
+    flex-direction: column;
+    //align-items: center;
+    justify-content: center;
+    font-size: 15px;
+    //text-align: center;
+    //margin-top: 52px;
+    //background: red;
+    @include media(pc) {
+      flex-direction: row;
+    }
+    li {
+      width: 100%;
+      line-height: 1.25;
+      border-top: solid 1px colors(gray-dark);
+      @include media(pc) {
+        margin-bottom: 0;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        white-space: nowrap;
+        transition: 0.3s ease;
+        padding: 1.25em 1.5em 1.25em 0.85em;
+        background-image: url(../img/common/icon-arrow.svg);
+        background-repeat: no-repeat;
+        background-size: 1em 1em;
+        background-position: top 50% right 1em;
+      }
+      //別パターン
+      // .news
+      &.news {
+        border-bottom: solid 1px colors(gray-dark);
+        .time {
+          background: colors(pri);
+          border-radius: 100px;
+          padding: 0.35em 0.6em;
+          font-size: 10px;
+          margin-left: 0.5em;
+          font-weight: 700;
+        }
+        .new {
+          background: colors(pri);
+          border-radius: 100px;
+          padding: 0.35em 0.6em;
+          font-size: 10px;
+          margin-left: 0.5em;
+          font-weight: 700;
+        }
+      }
+      // .lang
+      &.lang {
+        border-top: none;
+        width: 88%;
+        margin-left: 6%;
+        margin-top: 20px;
+        position: relative;
+        button {
+          background: colors(act);
+          border-radius: 5px 5px;
+          padding: 0.6em 0.5em;
+          font-weight: 500;
+          display: flex;
+          align-items: center;
+          width: 100%;
+          transition: 0.3s ease;
+          position: relative;
+          @include z-index-2;
+          &.is--open {
+            border-radius: 5px 5px 0 0;
+            &:after {
+              transform: rotate(180deg);
+            }
+          }
+          &:before {
+            content: "";
+            display: block;
+            width: 1.75em;
+            height: 1.75em;
+            background-image: url(../img/common/icon-lang.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-right: 0.2em;
+          }
+          &:after {
+            content: "";
+            display: block;
+            width: 1em;
+            height: 1em;
+            background-image: url(../img/common/icon-arrow-bottom.svg);
+            background-repeat: no-repeat;
+            background-size: contain;
+            margin-left: auto;
+            transform: rotate(0deg);
+            transform-origin: center center;
+            transition: 0.3s ease;
+          }
+        }
+        .lang-menu {
+          width: 100%;
+          background-color: colors(black-light);
+          font-size: 13px;
+          list-style: none;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-10px);
+          transition: 0.3s ease;
+          position: relative;
+          @include z-index-1;
+          padding: 14px 0;
+          border-radius: 0 0 5px 5px;
+          &.is--open {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+          }
+          li {
+            border-top: none;
+          }
+          a {
+            padding: 10px 10px;
+            background: none;
+            display: block;
+            transition: background-color 0.3s;
+          }
+        }
+      }
+    }
+  }
+}
+
+// .gnav__searchbtn
+//=====================================================
+.gnav__searchbtn {
+  width: 52px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  right: 52px;
+  @include mask('../img/common/icon-search.svg', center, 54%);
+  background: colors(white);
+  transition: 0.3s ease;
+  &.is--open {
+    background: colors(gray-dark);
+  }
+}
+
+// .gnav__search
+//=====================================================
+.gnav__search {
+  width: 100%;
+  height: 116px;
+  position: fixed;
+  top: 52px;
+  left: 0;
+  background: rgba(50, 50, 50, 0.65);
+  @include backdrop-filter(blur(20px));
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-10px);
+  transition: 0.3s ease;
+  &.is--open {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  }
+  &.is--closing {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  .layouttop {
+    width: 100%;
+    height: 44px;
+    background: colors(black-light);
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .btn__query {
+    list-style: none;
+    display: flex;
+    display: flex;
+    justify-content: flex-start;
+    font-size: 12px;
+    gap: 0 0.75em;
+    margin-top: 0;
+    margin-bottom: 0;
+    margin-left: 3.5%;
+    li {}
+    a {
+      display: flex;
+      align-items: center;
+      border: solid 1px colors(white);
+      border-radius: 5px;
+      padding: 0.5em 0.75em;
+    }
+  }
+  .closebtn {
+    width: 44px;
+    height: 44px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 0;
+    right: 0;
+    @include z-index-4;
+    background: colors(act);
+    &:before,
+    &:after {
+      content: "";
+      display: block;
+      width: 40%;
+      height: 2px;
+      background: colors(white);
+      transition: 0.3s ease;
+      border-radius: 3px;
+    }
+    &:before {
+      transform: rotate(45deg) translateX(0px) translateY(0px);
+    }
+    &:after {
+      transform: rotate(-45deg) translateX(2px) translateY(-1px);
+    }
+  }
+  .layoutbottom {
+    width: 100%;
+    height: 72px;
+    display: flex;
+    align-items: center;
+  }
+  .form__search {
+    // _form.scssに記述
+  }
+}
+
+
+// .gnav__bg
+//=====================================================
+.gnav__bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  @include z-index-2;
+  background: rgba(10, 10, 10, 0.4);
+  @include backdrop-filter(blur(20px));
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+  // 状態変化
+  &.is--visible {
+    opacity: 1;
+    visibility: visible;
+    pointer-events: auto;
+  }
+}
+
+// 状態変化
+//=====================================================
+.gnav__modal {
+  &.is--open {
+    // .gnav__hamburger
+    .gnav__hamburger {
+      background: colors(act);
+      &:before {
+        width: 40%;
+        transform: rotate(45deg) translateX(4px) translateY(4px);
+      }
+      &:after {
+        width: 40%;
+        transform: rotate(-45deg) translateX(7px) translateY(-7px);
+      }
+      .border {
+        opacity: 0;
+      }
+    }
+    // .gnav__nav
+    .gnav__nav {
+      right: 0;
+    }
+  }
+}

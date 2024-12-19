@@ -1,0 +1,124 @@
+@use "../global/_setting" as *;
+
+// .btn__query
+//=====================================================
+.btn__query {
+  list-style: none;
+  display: flex;
+  list-style: none;
+  display: flex;
+  justify-content: flex-start;
+  font-size: clamp(24px*0.5, 24/750*100vw, 2.4rem*0.5);
+  gap: 0 0.65em;
+  margin: 1.75em 0;
+  li {}
+  a {
+    display: flex;
+    align-items: center;
+    border: solid 1px colors(white);
+    border-radius: 5px;
+    padding: 0.5em 0.75em;
+    line-height: 1.2;
+  }
+  // 別パターン
+  &.gnav {
+    font-size: 12px;
+    margin-left: 3.5%;
+  }
+  &.gray-light {
+    a {
+      color: colors(gray-light);
+      border: solid 1px colors(gray-light);
+    }
+  }
+}
+
+// .btn__normal
+//=====================================================
+.btn__normal {
+  font-size: clamp(28px*0.5, 28/750*100vw, 2.8rem*0.5);
+  a,
+  .btn {
+    font-weight: 700;
+    display: flex;
+    justify-content: center;
+    border-radius: 100px;
+    width: 100%;
+    padding: 1.15em 0.5em;
+  }
+  // カラーパターン
+  &.pri {
+    a,
+    .btn {
+      background: colors(pri);
+    }
+  }
+  &.cta {
+    a,
+    .btn {
+      background: colors(cta);
+    }
+  }
+  // サイズ
+  &.w87--sp {
+    width: 87%;
+    margin-inline: auto;
+  }
+}
+
+// .btn__tag
+//=====================================================
+.btn__tag {
+  display: flex;
+  flex-wrap: wrap;
+  font-size: clamp(24px*0.5, 24/750*100vw, 2.4rem*0.5);
+  gap: 6px;
+  list-style: none;
+  .tag {
+    display: inline-block;
+    padding: 0.5em 0.85em;
+    color: colors(white);
+    background-color: colors(gray-dark);
+    border-radius: clamp(10px*0.5, 10/750*100vw, 1rem*0.5);
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    &:active {
+      background-color: colors(black-light);
+    }
+    &.pri {
+      background-color: colors(pri);
+    }
+    &.black {
+      background-color: colors(black);
+    }
+    &.alpha {
+      opacity: 0.8;
+    }
+  }
+  // 別パターン
+  &.large {
+    font-size: clamp(28px*0.5, 28/750*100vw, 2.8rem*0.5);
+  }
+}
+
+//.btn__imgwrap
+//=====================================================
+// .btn__imgwrap {
+//   .imgwrap {
+//     overflow: hidden;
+//     img {
+//       width: 100%;
+//       transition: 0.7s ease;
+//       transform: scale(1.01);
+//       transform-origin: center center;
+//     }
+//   }
+//   &:hover {
+//     .imgwrap {
+//       img {
+//         transform: scale(1.12);
+//       }
+//     }
+//   }
+// }
+

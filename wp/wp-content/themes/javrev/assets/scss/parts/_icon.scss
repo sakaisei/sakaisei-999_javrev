@@ -1,0 +1,117 @@
+@use "../global/_setting" as *;
+
+// .icon__normal
+//=====================================================
+.icon__normal {
+  display: flex;
+  align-items: center;
+  &:before {
+    content: "";
+    display: block;
+    width: 1.25em;
+    height: 1.25em;
+    margin-right: 0.35em;
+  }
+  // アイコンパターン
+  //=====================================================
+  &.filter {
+    &:before {
+      @include mask("../img/common/icon-filter.svg");
+    }
+  }
+  &.tag {
+    &:before {
+      @include mask("../img/common/icon-tag.svg");
+    }
+  }
+  &.search {
+    &:before {
+      @include mask("../img/common/icon-search.svg");
+    }
+  }
+  &.video {
+    &:before {
+      @include mask("../img/common/icon-video.svg");
+    }
+  }
+  // カラーパターン
+  //=====================================================
+  &.pri {
+    &:before {
+      background: colors(pri);
+    }
+  }
+  &.cta {
+    &:before {
+      background: colors(cta);
+    }
+  }
+  &.act {
+    &:before {
+      background: colors(act);
+    }
+  }
+  &.white {
+    &:before {
+      background: colors(white);
+    }
+  }
+  &.white-fff {
+    &:before {
+      background: colors(white-fff);
+    }
+  }
+  &.black {
+    &:before {
+      background: colors(white);
+    }
+  }
+  &.gray-light {
+    &:before {
+      background: colors(gray-light);
+    }
+  }
+  // サイズ
+  //=====================================================
+  &.large {
+    &:before {
+      content: "";
+      display: block;
+      width: 2em;
+      height: 2em;
+    }
+  }
+}
+
+// .icon__rate
+//=====================================================
+.icon__rate {
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  .average-score {
+    font-size: clamp(24px*0.5, 24/750*100vw, 2.4rem*0.5);
+    font-weight: 700;
+    color: colors(rate);
+  }
+  .stars {
+    display: flex;
+    gap: 0.2em;
+  }
+  .star {
+    width: clamp(38px*0.5, 38/750*100vw, 3.8rem*0.5);
+    height: clamp(38px*0.5, 38/750*100vw, 3.8rem*0.5);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+  }
+  .star-filled {
+    background-image: url('../img/common/icon-starfill.svg');
+  }
+  .star-half {
+    background-image: url('../img/common/icon-starhalf.svg');
+  }
+  .star-outline {
+    background-image: url('../img/common/icon-starline.svg');
+  }
+}

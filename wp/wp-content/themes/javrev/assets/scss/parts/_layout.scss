@@ -1,0 +1,29 @@
+@use "../global/_setting" as *;
+
+// .layout__normal
+//=====================================================
+.layout__normal {
+  width: min(93%, 460px);
+  margin-inline: auto;
+  @include media(tb) {
+    width: min(93%, 124rem);
+  }
+}
+
+// .layout__padding
+//=====================================================
+.layout__padding {
+  padding: clamp(78px*0.5, 78/750*100vw, 7.8rem*0.5) 0;
+}
+
+.layout__sub {
+  display: block;
+  width: 100%;
+  font-size: clamp(28px*0.5, 28/750*100vw, 2.8rem*0.5);
+  padding: clamp(56px*0.5, 56/750*100vw, 5.6rem*0.5) 0;
+  background: colors(black-light);
+  margin-bottom: 1px;
+  @include media(tb) {
+    padding: clamp(56px, 56/750*100vw, 5.6rem) 0;
+  }
+}

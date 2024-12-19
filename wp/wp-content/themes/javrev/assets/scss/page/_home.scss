@@ -1,0 +1,152 @@
+@use "../global/_setting" as *;
+
+// .home
+//=====================================================
+.home {
+
+  // .fv
+  //=====================================================
+  .fv {
+    width: 100%;
+    height: 100vh;
+    height: 100dvh;
+    height: calc(var(--vh2, 1vh) * 100);
+    min-height: calc(670/430*100vw);
+    background-image: url(../img/page/home/fv--sp.jpg);
+    background-size: cover;
+    background-position: top right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+    @include media-2x {
+      background-image: url(../img/page/home/fv--sp@2x.jpg);
+    }
+    @include media(tb) {
+      width: 100%;
+      height: auto;
+      min-height: auto;
+      aspect-ratio: 900/600;
+      background-image: url(../img/page/home/fv--tb.jpg);
+      //margin-top: 52px;
+      justify-content: center;
+      @include media-2x {
+        background-image: url(../img/page/home/fv--tb@2x.jpg);
+      }
+    }
+    .inner-layout {
+      width: 93%;
+      margin-inline: auto;
+      position: relative;
+      @include z-index-2;
+      margin-top: 14vw;
+    }
+    .mainttl {
+      font-size: min(48/750*100vw, 4.8rem);
+      @include media(tb) {
+        font-size: min(48/750*100vw*0.7, 4.8rem*0.6);
+      }
+      h1 {
+        line-height: 1.65;
+        font-weight: 700;
+        text-shadow: 0 0 10px rgba(0,0,0,0.5);
+      }
+      p {
+        font-size: min(32/750*100vw, 3.2rem);
+        margin-top: 0.5em;
+        font-weight: 500;
+        text-shadow: 0 0 10px rgba(0,0,0,0.5);
+        @include media(tb) {
+          font-size: min(32/750*100vw*0.7, 3.2rem*0.6);
+        }
+      }
+    }
+    .btnlayout {
+      display: flex;
+      justify-content: space-between;
+      list-style: none;
+      font-size: min(28/750*100vw, 2.8rem);
+      margin: 2.15em 0 2.85em;
+      @include media(tb) {
+        font-size: min(28/750*100vw*0.7, 2.8rem*0.6);
+        width: min(460/750*100vw, 46rem);
+        margin-bottom: 0;
+      }
+      .btn__normal {
+        width: 48.5%;
+      }
+    }
+    .text {
+      position: relative;
+      @include z-index-2;
+      position: absolute;
+      bottom: 15px;
+      right: 3.5%;
+      font-size: min(22/750*100vw, 2.2rem);
+      opacity: 0.7;
+      @include media(tb) {
+        font-size: min(22/750*100vw*0.7, 2.2rem*0.55);
+      }
+    }
+    .iconr18 {
+      position: relative;
+      @include z-index-2;
+      position: absolute;
+      top: 64px;
+      left: 3.5%;
+      border-radius: 5px;
+      border: solid 1px rgba(255,255,255,0.35);
+      color: rgba(255,255,255,0.35);
+      padding: 0.2em 0.4em;
+      font-size: min(22/750*100vw, 2.2rem);
+      @include media(tb) {
+        //top: calc(64px - 52px);
+        font-size: min(22/750*100vw*0.7, 2.2rem*0.55);
+      }
+    }
+    .iconjr {
+      position: relative;
+      @include z-index-2;
+      position: absolute;
+      top: 64px;
+      right: 3.5%;
+      width: min(110/750*100vw, 11rem);
+      height: min(110/750*100vw, 11rem);
+      @include mask("../img/common/icon-jr.svg");
+      @include backdrop-filter(blur(15px));
+      background-color: rgba(255,255,255,0.35);
+      @include media(tb) {
+        //top: calc(64px - 52px);
+        right: 3.5%;
+        width: min(110/750*100vw*0.7, 11rem*0.55);
+        height: min(110/750*100vw*0.7, 11rem*0.55);
+      }
+    }
+    .fvbglayer {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 66%;
+      @include z-index-1;
+      background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
+    }
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+} // END .home

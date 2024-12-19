@@ -1,0 +1,134 @@
+@use "../global/_setting" as *;
+
+// .scroll__fv
+.scroll__fv {
+  filter: blur(calc(10/1240*100vw));
+  transform: scale(1.03);
+  transition: 0.9s ease;
+  opacity: 0;
+  &.show {}
+  &.done {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// .scroll__blur
+.scroll__blur,
+.scroll__blur-s1,
+.scroll__blur-s2 {
+  filter: blur(calc(10/1240*100vw));
+  transform: scale(1.03);
+  transition: 0.9s ease;
+  opacity: 0;
+  &.show {}
+  &.done {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.scroll__blur-bg {
+  filter: brightness(1) blur(0) sepia(0) opacity(1);
+  transition: 3.6s ease;
+  &.show {}
+  &.done {
+    filter: brightness(3.5) blur(28px) sepia(0.45) opacity(0.5);
+  }
+}
+
+.scroll__blur-small,
+.scroll__blur-small-s1 {
+  filter: blur(calc(10/1240*100vw));
+  transform: scale(0.97);
+  transition: 0.9s ease;
+  opacity: 0;
+  &.show {}
+  &.done {
+    filter: blur(0);
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+// .scroll__pc_black
+.scroll__pc_black {
+  color: colors(white) !important;
+  transition: 3.6s ease;
+  &.text_show {}
+  &.text_done {
+    color: colors(black) !important;
+  }
+}
+
+// .scroll__fadeinbottom
+.scroll__fadeinbottom {
+  transition: 0.9s ease;
+  transform: translateY(calc(50/1240*100vw));
+  opacity: 0;
+  &.show {}
+  &.done {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.scroll__bgfadeinblur {
+  filter: grayscale(100%) blur(calc(50/1240*100vw));
+  transform: scale(1.02);
+  opacity: 0;
+  &.show {
+    // transition: 1s linear;
+    // filter: grayscale(0) blur(calc(10/1240*100vw));
+    // opacity: 1;
+  }
+  &.done {
+    transition: 1.3s ease;
+    filter: grayscale(0) blur(0);
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.scroll__top-s1,
+.scroll__top-s2,
+.scroll__top-s3 {
+  transform: translateY(14%) translateZ(0) !important;
+  transition: 0.9s ease;
+  opacity: 0;
+  filter: blur(calc(10/1240*100vw));
+  &.show {}
+  &.done {
+    transform: translateY(0) translateZ(0) !important;
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.scroll__fadeinblur-left {
+  transform: translateX(calc(40/1240*100vw));
+  transition: 0.75s ease;
+  opacity: 0;
+  filter: blur(calc(30/1240*100vw));
+  &.show {}
+  &.done {
+    transform: translateX(0);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+.scroll__brightness-saturate {
+  filter: brightness(80%) saturate(100%) blur(calc(50/1240*100vw));
+  &.show {
+    filter: brightness(80%) saturate(100%) blur(0);
+    transition: 0.9s ease;
+  }
+  &.done {
+    filter: brightness(140%) saturate(160%) blur(0);
+    transition: 3.5s ease;
+  }
+}
+

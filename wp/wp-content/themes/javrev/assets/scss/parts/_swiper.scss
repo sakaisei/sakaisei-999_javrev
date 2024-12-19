@@ -1,0 +1,58 @@
+@use "../global/_setting" as *;
+
+// .swiper-pagination
+//=====================================================
+.swiper-pagination {
+  .swiper-pagination-bullet {
+    width: 17px;
+    height: 11px;
+    border-radius: 0;
+    opacity: 1;
+    background: none;
+    &:after {
+      content: "";
+      display: block;
+      width: 100%;
+      height: 1px;
+      margin-top: 5px;
+    }
+  }
+  .swiper-pagination-bullet-active {
+    &:after {
+      background: colors(primary);
+    }
+  }
+  // カラーパターン
+  // .white
+  &.white {
+    .swiper-pagination-bullet {
+      &:after {
+        background: colors(white);
+      }
+    }
+    .swiper-pagination-bullet-active {
+      &:after {
+        background: colors(primary);
+      }
+    }
+  }
+  // .gray
+  &.gray {
+    .swiper-pagination-bullet {
+      &:after {
+        background: colors(gray);
+      }
+    }
+    .swiper-pagination-bullet-active {
+      &:after {
+        background: colors(primary);
+      }
+    }
+  }
+}
+.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
+  bottom: 0;
+}
+.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
+  margin: 0 13px;
+}

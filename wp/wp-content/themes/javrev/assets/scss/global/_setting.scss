@@ -1,0 +1,177 @@
+// 01. Font
+//=====================================================
+@mixin sans {
+  font-family: Roboto, "Helvetica Neue", HelveticaNeue, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", YuGothic, "Yu Gothic Medium", "Yu Gothic", Verdana, Meiryo, sans-serif;
+}
+
+// 02. Color
+//=====================================================
+:root {
+  --pri: #B90000;
+  --cta: #199D42;
+  --act: #0064B9;
+  --rate: #EDBF00;
+  --white: #F6F6F6;
+  --white-fff: #FFF;
+  --black: #000;
+  --black-light: #141414;
+  --black-light-2: #1D1D1D;
+  --gray: #818181;
+  --gray-2: #9F9F9F;
+  --gray-3: #707070;
+  --gray-light: #C6C6C6;
+  --gray-dark: #343434;
+}
+
+$color: (
+  pri: var(--pri),
+  cta: var(--cta),
+  act: var(--act),
+  rate: var(--rate),
+  white: var(--white),
+  white-fff: var(--white-fff),
+  black: var(--black),
+  black-light: var(--black-light),
+  black-light-2: var(--black-light-2),
+  gray: var(--gray),
+  gray-2: var(--gray-2),
+  gray-3: var(--gray-3),
+  gray-light: var(--gray-light),
+  gray-dark: var(--gray-dark),
+);
+
+// Color Map
+@function colors($key) {
+  @return map-get($color, $key);
+}
+
+// グラデーション
+// spe
+@mixin grad-spe-110deg {
+  background-image: linear-gradient(110deg, #1E3048 0%, #2E4386 100%);
+}
+@mixin grad-spe-323deg {
+  background-image: linear-gradient(323deg, #1E3048 0%, #2E4386 100%);
+}
+// spe2
+@mixin grad-spe2-90deg {
+  background-image: linear-gradient(90deg, #00A5A5 0%, #1478FF 100%);
+}
+// spe3
+@mixin grad-spe3-323deg {
+  background-image: linear-gradient(323deg, #1E3048 -20%, #2E4386 90%);
+}
+
+// 03. Z-index
+//=====================================================
+//z-index
+@mixin z-index--1 {
+  z-index: -1;
+}
+@mixin z-index-1 {
+  z-index: 1;
+}
+@mixin z-index-2 {
+  z-index: 2;
+}
+@mixin z-index-3 {
+  z-index: 3;
+}
+@mixin z-index-4 {
+  z-index: 4;
+}
+@mixin z-index-5 {
+  z-index: 5;
+}
+@mixin z-index-6 {
+  z-index: 6;
+}
+@mixin z-index-7 {
+  z-index: 7;
+}
+@mixin z-index-8 {
+  z-index: 8;
+}
+@mixin z-index-9 {
+  z-index: 9;
+}
+@mixin z-index-10 {
+  z-index: 10;
+}
+@mixin z-index-999 {
+  z-index: 999;
+}
+
+// 04. Media Query
+//=====================================================
+$device_width: (
+  sp-s: 320px,
+  sp: 375px,
+  sp-l: 390px,
+  sp-xl: 414px,
+  sp-2xl: 560px,
+  tb: 667px,
+  tb-l: 800px,
+  pc: 1024px,
+  pc-l: 1100px,
+  pc-xl: 1280px,
+  pc-2xl: 1440px,
+  pc-3xl: 1680px,
+  pc-4xl: 1900px,
+);
+// Device Width Map
+@function device($key) {
+  @return map-get($device_width, $key);
+}
+@mixin media($size: tablet) {
+  @media (min-width: device($size)) {
+    @content;
+  }
+}
+
+// 2x対応 mediaQuery
+@mixin media-2x {
+  @media only screen and (-webkit-min-device-pixel-ratio: 2),
+   only screen and (min--moz-device-pixel-ratio: 2),
+   only screen and (-o-min-device-pixel-ratio: 2/1),
+   only screen and (min-device-pixel-ratio: 2),
+   only screen and (min-resolution: 192dpi),
+   only screen and (min-resolution: 2dppx) {
+    @content;
+  }
+}
+
+@mixin background-clip {
+  @supports (-webkit-background-clip: text) {
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    @content;
+  }
+}
+
+@mixin landscape {
+  @media screen and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin portrait {
+  @media screen and (orientation: portrait) {
+    @content;
+  }
+}
+
+// 05. other mixin
+//=====================================================
+// mask用のミックスイン
+@mixin mask($url, $position: center, $size: contain) {
+  mask: url($url) no-repeat $position / $size;
+  -webkit-mask: url($url) no-repeat $position / $size;
+}
+
+// backdrop-filter用のミックスイン
+@mixin backdrop-filter($filter) {
+  -webkit-backdrop-filter: $filter;
+  backdrop-filter: $filter;
+}

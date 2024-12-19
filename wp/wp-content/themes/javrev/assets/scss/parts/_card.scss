@@ -1,0 +1,133 @@
+@use "../global/_setting" as *;
+
+// .card__normalwrap
+//=====================================================
+.card__normalwrap {
+  font-size: clamp(20px*0.5, 20/750*100vw, 2rem*0.5);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 6.2em;
+  margin-bottom: 6.2em;
+  @include media(tb) {
+    display: grid;
+    gap: 6vw;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+// .card__normal
+//=====================================================
+.card__normal {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  //margin-bottom: 6.2em;
+  background: colors(black-light);
+  border-radius: 0 0 clamp(30px*0.5, 30/750*100vw, 3rem*0.5) clamp(30px*0.5, 30/750*100vw, 3rem*0.5);
+  @include media(tb) {
+    // width: 100%;
+    // max-width: 100%;
+    // background: colors(black-light);
+    // border-radius: 0 0 clamp(50px*0.5, 50/750*100vw, 5rem*0.5) clamp(50px*0.5, 50/750*100vw, 5rem*0.5);
+  }
+  .link {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+  }
+  .mainslider {
+    position: relative;
+  }
+  .mainslider-slide {
+    border-radius: clamp(30px*0.5, 30/750*100vw, 3rem*0.5);
+    aspect-ratio: 696 / 464;
+    overflow: hidden;
+    border-radius: clamp(30px*0.5, 30/750*100vw, 3rem*0.5) clamp(30px*0.5, 30/750*100vw, 3rem*0.5) 0 0;
+    @include media(tb) {
+      //border-radius: clamp(50px*0.5, 50/750*100vw, 5rem*0.5) clamp(50px*0.5, 50/750*100vw, 5rem*0.5) 0 0;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .inner-layout-1 {
+    padding: 1.5% 5% 0 5%;
+  }
+  .quality {
+    position: absolute;
+    top: 1.25em;
+    left: 1.25em;
+    @include z-index-1;
+  }
+  .playtime {
+    position: absolute;
+    bottom: 1.25em;
+    right: 1.25em;
+    @include z-index-1;
+  }
+  .layoutcol2 {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: clamp(24px*0.5, 24/750*100vw, 2.4rem*0.5);
+    margin: 1em 0 0.65em;
+    .icon__rating {
+      // _icon.scssに記述
+    }
+    time {
+      color: colors(gray);
+    }
+  }
+  .ttl {
+    font-size: clamp(32px*0.5, 32/750*100vw, 3.2rem*0.5);
+    line-height: 1.65;
+    font-weight: 400;
+  }
+  .inner-layout-2 {
+    padding: 0 5% 8.5% 5%;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+  }
+  .tmbsliderwrap {
+    font-size: clamp(28px*0.5, 28/750*100vw, 2.8rem*0.5);
+    width: 60%;
+    margin: 0.8em 0 1.25em;
+  }
+  .tmbslider {}
+  .tmbslider-slide {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    border-radius: clamp(10px*0.5, 10/750*100vw, 1rem*0.5);
+    opacity: 0.5;
+    transition: opacity 0.3s ease;
+    &:hover {
+      opacity: 0.8;
+    }
+    &.swiper-slide-thumb-active {
+      opacity: 1;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+  .tagwrap {
+    margin-bottom: auto;
+  }
+  .btn__tag {
+    // _btn.scssに記述
+  }
+  .btn__normal {
+    margin-top: 1.5em;
+    // _btn.scssに記述
+  }
+}

@@ -1,0 +1,10 @@
+@use "../global/_setting" as *;
+
+// only
+//=====================================================
+.only__pconly {
+  display: none !important;
+  @include media(pc) {
+    display: block !important;
+  }
+}

@@ -1,0 +1,25 @@
+@use "../global/_setting" as *;
+
+// .ttl__layout
+//=====================================================
+.ttl__layout {
+  font-size: clamp(38px*0.5, 38/750*100vw, 3.8rem*0.5);
+  .ttl {
+    line-height: 1.5;
+  }
+  .text {
+    font-size: clamp(28px*0.5, 28/750*100vw, 2.8rem*0.5);
+    line-height: 1.5;
+    color: colors(gray-light);
+    margin-top: 0.35em;
+  }
+  // 別パターン
+  //.small
+  &.small {
+    font-size: clamp(34px*0.5, 34/750*100vw, 3.4rem*0.5);
+  }
+  //.mb1em
+  &.mb1em {
+    margin-bottom: 1em;
+  }
+}

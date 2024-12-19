@@ -1,0 +1,104 @@
+@use "../global/_setting" as *;
+
+// .list__pagination
+//=====================================================
+.list__pagination {
+  .inner-layout {
+    position: relative;
+  }
+  .pages {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    padding-top: 3.5em;
+    list-style: none;
+    @include media(tb) {
+      padding-top: 0;
+    }
+  }
+  .btnprev,
+  .btnnext {
+    width: 48.5%;
+    position: absolute;
+    @include media(tb) {
+      width: auto;
+      position: static;
+    }
+  }
+  .btnprev {
+    top: 0;
+    left: 0;
+    @include media(tb) {
+      margin-right: 2.5em;
+    }
+  }
+  .btnnext {
+    top: 0;
+    right: 0;
+    @include media(tb) {
+      margin-left: 2.5em;
+    }
+  }
+  .prev,
+  .next {
+    background: colors(pri);
+    border-radius: clamp(10px*0.5, 10/750*100vw, 1rem*0.5);
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    padding: 0.75em;
+    position: relative;
+    @include media(tb) {
+      padding: 0.75em 3.5em;
+    }
+  }
+  .prev {
+    &:before {
+      content: "";
+      display: block;
+      width: 1em;
+      height: 1em;
+      @include mask("../img/common/icon-arrow-left.svg");
+      background: colors(white);
+      position: absolute;
+      top: 50%;
+      left: 0.5em;
+      transform: translateY(-50%);
+      transform-origin: center center;
+    }
+  }
+  .next {
+    &:after {
+      content: "";
+      display: block;
+      width: 1em;
+      height: 1em;
+      @include mask("../img/common/icon-arrow-right.svg");
+      background: colors(white);
+      position: absolute;
+      top: 50%;
+      right: 0.5em;
+      transform: translateY(-50%);
+      transform-origin: center center;
+    }
+  }
+  .num {
+    width: 2.4em;
+    height: 2.4em;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: clamp(10px*0.5, 10/750*100vw, 1rem*0.5);
+    background: colors(gray-dark);
+    margin: 0 0.25em;
+  }
+  .is--disabled {
+    opacity: 0.3;
+    background: colors(gray-dark);
+  }
+  .is--current {
+    background: colors(pri);
+  }
+}
+

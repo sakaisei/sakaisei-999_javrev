@@ -1,0 +1,51 @@
+@use "../global/_setting" as *;
+
+// .form__search
+//=====================================================
+.form__search {
+  width: 100%;
+  position: relative;
+  margin: 0 auto;
+  padding: 3px;
+  background-color: colors(white);
+  border-radius: 100px;
+  display: flex;
+  align-items: center;
+  max-width: 48rem;
+  input[type="text"] {
+    width: 100%;
+    padding: 10px 48px 10px 16px;
+    border: none;
+    border-radius: 50px;
+    font-size: 16px;
+    background-color: colors(white);
+    color: colors(black);
+    outline: none;
+
+    &::placeholder {
+      color: #888;
+    }
+  }
+  .search-btn {
+    position: absolute;
+    right: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 24px;
+    height: 24px;
+    background-color: colors(black);
+    @include mask("../img/common/icon-search.svg");
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    &:hover {
+      opacity: 0.8; // ホバー時の軽いエフェクト
+    }
+    &:focus {
+      outline: 2px solid #007bff; // フォーカス時のアクセシビリティ対応
+    }
+  }
+  &.gnav {
+    width: 93%;
+  }
+}
