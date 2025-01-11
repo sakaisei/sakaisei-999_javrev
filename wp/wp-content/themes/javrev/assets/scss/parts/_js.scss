@@ -1,0 +1,11 @@
+@use "../global/_setting" as *;
+
+// .js--acmenu
+//=====================================================
+.js--acmenu {
+  .js--acmenu-content {
+    overflow: hidden; // コンテンツがはみ出さないようにする
+    max-height: 0; //初期状態は閉じる
+    transition: max-height 0.3s ease; //開閉時のアニメーション
+  }
+}

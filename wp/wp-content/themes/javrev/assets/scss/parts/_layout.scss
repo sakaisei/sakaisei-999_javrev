@@ -10,12 +10,45 @@
   }
 }
 
+// .layout__article
+//=====================================================
+.layout__article {
+  width: 93%;
+  margin-inline: auto;
+  @include media(tb) {
+    width: min(93%, 72rem);
+  }
+}
+
 // .layout__padding
 //=====================================================
 .layout__padding {
   padding: clamp(78px*0.5, 78/750*100vw, 7.8rem*0.5) 0;
+  @include media(pc) {
+    padding: min(86/1440*100vw, 8.6rem) 0;
+  }
 }
 
+// .layout__large
+//=====================================================
+.layout__large {
+  padding: clamp(110px*0.5, 110/750*100vw, 11rem*0.5) 0;
+  @include media(pc) {
+    padding: min(110/1440*100vw, 11rem) 0;
+  }
+}
+
+// .layout__margintop
+//=====================================================
+.layout__margintop {
+  margin-top: clamp(78px*0.5, 78/750*100vw, 7.8rem*0.5);
+  @include media(pc) {
+    margin-top: min(86/1440*100vw, 8.6rem);
+  }
+}
+
+// .layout__sub
+//=====================================================
 .layout__sub {
   display: block;
   width: 100%;
@@ -25,5 +58,8 @@
   margin-bottom: 1px;
   @include media(tb) {
     padding: clamp(56px, 56/750*100vw, 5.6rem) 0;
+  }
+  @include media(pc) {
+    font-size: min(16/1440*100vw, 1.6rem);
   }
 }

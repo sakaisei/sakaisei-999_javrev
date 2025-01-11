@@ -41,7 +41,10 @@ dev/*
 /wp/wp-content/ai1wm-backups/robots.txt
 !/wp/wp-content/ai1wm-backups/*.wpress
 !/wp/wp-content/uploads
-/wp/wp-content/uploads/mw-wp-form_uploads
+/wp/wp-content/uploads/cache
+/wp/wp-content/uploads/flags
+/wp/wp-content/uploads/wpcf7_uploads
+/wp/wp-content/uploads/wpo
 .htaccess
 
 

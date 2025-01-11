@@ -1,5 +1,5 @@
 <?php get_header(); ?>
-<main>
+<main class="main__common">
   <section class="sec-general">
     <div class="inner-layout">
       <h1 class="ttl-center">index.php</h1>

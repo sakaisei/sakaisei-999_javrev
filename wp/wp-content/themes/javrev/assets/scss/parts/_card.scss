@@ -7,11 +7,17 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr);
   gap: 6.2em;
-  margin-bottom: 6.2em;
+  //margin-bottom: 6.2em;
   @include media(tb) {
     display: grid;
     gap: 6vw;
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  @include media(pc) {
+    font-size: min(18/1440*100vw, 1.8rem);
+    display: grid;
+    gap: 3em;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
@@ -24,33 +30,45 @@
   height: 100%;
   //margin-bottom: 6.2em;
   background: colors(black-light);
-  border-radius: 0 0 clamp(30px*0.5, 30/750*100vw, 3rem*0.5) clamp(30px*0.5, 30/750*100vw, 3rem*0.5);
-  @include media(tb) {
-    // width: 100%;
-    // max-width: 100%;
-    // background: colors(black-light);
-    // border-radius: 0 0 clamp(50px*0.5, 50/750*100vw, 5rem*0.5) clamp(50px*0.5, 50/750*100vw, 5rem*0.5);
+  border-radius: clamp(30px*0.5, 30/750*100vw, 3rem*0.5);
+  @include media(pc) {
+    border-radius: min(20/1440*100vw, 2rem);
   }
   .link {
     display: block;
     text-decoration: none;
     color: inherit;
+    &:hover,
+    &.is--hover {
+      .mainslider-slide {
+        img {
+          transform: scale(1.18);
+        }
+      }
+      & + .inner-layout-2 {
+        .btn__normal {
+          .btn {
+            opacity: 0.7;
+          }
+        }
+      }
+    }
   }
   .mainslider {
     position: relative;
   }
   .mainslider-slide {
-    border-radius: clamp(30px*0.5, 30/750*100vw, 3rem*0.5);
-    aspect-ratio: 696 / 464;
+    aspect-ratio: 3 / 2;
     overflow: hidden;
     border-radius: clamp(30px*0.5, 30/750*100vw, 3rem*0.5) clamp(30px*0.5, 30/750*100vw, 3rem*0.5) 0 0;
-    @include media(tb) {
-      //border-radius: clamp(50px*0.5, 50/750*100vw, 5rem*0.5) clamp(50px*0.5, 50/750*100vw, 5rem*0.5) 0 0;
+    @include media(pc) {
+      border-radius: min(20/1440*100vw, 2rem) min(20/1440*100vw, 2rem) 0 0;
     }
     img {
       width: 100%;
       height: 100%;
       object-fit: cover;
+      transition: 0.5s ease;
     }
   }
   .inner-layout-1 {
@@ -61,19 +79,30 @@
     top: 1.25em;
     left: 1.25em;
     @include z-index-1;
+    @include media(pc) {
+      top: 0.75em;
+      left: 0.75em;
+    }
   }
   .playtime {
     position: absolute;
     bottom: 1.25em;
     right: 1.25em;
     @include z-index-1;
+    @include media(pc) {
+      bottom: 0.75em;
+      right: 0.75em;
+    }
   }
   .layoutcol2 {
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: clamp(24px*0.5, 24/750*100vw, 2.4rem*0.5);
-    margin: 1em 0 0.65em;
+    margin: 1em 0 0.85em;
+    @include media(pc) {
+      font-size: clamp(12px, 13/1440*100vw, 1.3rem);
+    }
     .icon__rating {
       // _icon.scssに記述
     }
@@ -85,6 +114,9 @@
     font-size: clamp(32px*0.5, 32/750*100vw, 3.2rem*0.5);
     line-height: 1.65;
     font-weight: 400;
+    @include media(pc) {
+      font-size: clamp(16px, 18/1440*100vw, 1.8rem);
+    }
   }
   .inner-layout-2 {
     padding: 0 5% 8.5% 5%;
@@ -96,6 +128,9 @@
     font-size: clamp(28px*0.5, 28/750*100vw, 2.8rem*0.5);
     width: 60%;
     margin: 0.8em 0 1.25em;
+    @include media(pc) {
+      font-size: clamp(15px, 18/1440*100vw, 1.8rem);
+    }
   }
   .tmbslider {}
   .tmbslider-slide {
@@ -108,6 +143,7 @@
     border-radius: clamp(10px*0.5, 10/750*100vw, 1rem*0.5);
     opacity: 0.5;
     transition: opacity 0.3s ease;
+    cursor: pointer;
     &:hover {
       opacity: 0.8;
     }

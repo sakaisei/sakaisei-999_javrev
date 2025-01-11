@@ -1,58 +1,107 @@
 @use "../global/_setting" as *;
 
-// .swiper-pagination
+// .swiper__fv
 //=====================================================
-.swiper-pagination {
-  .swiper-pagination-bullet {
-    width: 17px;
-    height: 11px;
-    border-radius: 0;
+.swiper__fv {
+  //margin-bottom: clamp(52px*0.5, 52/750*100vw, 5.2rem*0.5);
+  @include media(pc) {
+    margin-inline: auto;
+    width: min(100%, 72rem);
+  }
+}
+.article__mainslider {
+  visibility: hidden;
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  aspect-ratio: 3 / 2;
+  &.swiper-initialized {
+    visibility: visible;
     opacity: 1;
-    background: none;
-    &:after {
-      content: "";
-      display: block;
+  }
+  .swiper-slide {
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: colors(black-light-2);
+    img {
       width: 100%;
-      height: 1px;
-      margin-top: 5px;
-    }
-  }
-  .swiper-pagination-bullet-active {
-    &:after {
-      background: colors(primary);
-    }
-  }
-  // カラーパターン
-  // .white
-  &.white {
-    .swiper-pagination-bullet {
-      &:after {
-        background: colors(white);
-      }
-    }
-    .swiper-pagination-bullet-active {
-      &:after {
-        background: colors(primary);
-      }
-    }
-  }
-  // .gray
-  &.gray {
-    .swiper-pagination-bullet {
-      &:after {
-        background: colors(gray);
-      }
-    }
-    .swiper-pagination-bullet-active {
-      &:after {
-        background: colors(primary);
+      height: 100%;
+      object-fit: cover;
+      &.is--contain {
+        object-fit: contain;
       }
     }
   }
 }
-.swiper-horizontal>.swiper-pagination-bullets, .swiper-pagination-bullets.swiper-pagination-horizontal, .swiper-pagination-custom, .swiper-pagination-fraction {
-  bottom: 0;
+.article__tmbslider {
+  max-width: 100%;
+  overflow: hidden;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+  height: calc(((100vw - 15px) / 3.5) * (800 / 1200));
+  margin-top: 5px;
+  &.swiper-initialized {
+    visibility: visible;
+    opacity: 1;
+  }
+  .swiper-slide {
+    opacity: 0.4;
+    aspect-ratio: 3 / 2;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: colors(black-light-2);
+    &.swiper-slide-thumb-active {
+      opacity: 1;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      &.is--contain {
+        object-fit: contain;
+      }
+    }
+  }
 }
-.swiper-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet, .swiper-pagination-horizontal.swiper-pagination-bullets .swiper-pagination-bullet {
-  margin: 0 13px;
+
+// 矢印
+.swiper-button-next,
+.swiper-button-prev {
+  &:after {
+    content: '';
+    font-family: initial;
+    font-size: 0;
+    line-height: 0;
+  }
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 40px;
+  height: 40px;
+}
+.swiper-button-next {
+  background-image: url('../img/common/icon-arrow-right.svg');
+  right: 0;
+}
+.swiper-button-prev {
+  background-image: url('../img/common/icon-arrow-left.svg');
+  left: 0;
+}
+
+// ページネーション
+.swiper-pagination-counter {
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 12px;
+  color: #fff;
+  background: rgba(0, 0, 0, 0.5);
+  padding: 5px 10px;
+  border-radius: 5px;
+  z-index: 10;
 }

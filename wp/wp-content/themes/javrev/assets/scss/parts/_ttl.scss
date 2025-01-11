@@ -4,6 +4,9 @@
 //=====================================================
 .ttl__layout {
   font-size: clamp(38px*0.5, 38/750*100vw, 3.8rem*0.5);
+  @include media(pc) {
+    font-size: min(28/1440*100vw, 2.8rem);
+  }
   .ttl {
     line-height: 1.5;
   }
@@ -12,14 +15,39 @@
     line-height: 1.5;
     color: colors(gray-light);
     margin-top: 0.35em;
+    @include media(pc) {
+      font-size: min(18/1440*100vw, 1.8rem);
+    }
   }
   // 別パターン
   //.small
   &.small {
     font-size: clamp(34px*0.5, 34/750*100vw, 3.4rem*0.5);
+    @include media(pc) {
+      font-size: min(24/1440*100vw, 2.4rem);
+    }
   }
   //.mb1em
   &.mb1em {
     margin-bottom: 1em;
   }
 }
+
+// .ttl__article
+//=====================================================
+.ttl__article {
+  margin-bottom: clamp(52px*0.5, 52/750*100vw, 5.2rem*0.5);
+  time {
+    font-size: clamp(24px*0.5, 24/750*100vw, 2.4rem*0.5);
+    color: colors(gray);
+    margin-bottom: 0.5em;
+    display: block;
+  }
+  h1 {
+    font-size: clamp(38px*0.5, 38/750*100vw, 3.8rem*0.5);
+    line-height: 1.6;
+    font-weight: 700;
+  }
+}
+
+

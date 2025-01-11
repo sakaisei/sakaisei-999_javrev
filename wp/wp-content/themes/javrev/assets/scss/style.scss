@@ -41,11 +41,13 @@
 @use "parts/_hidden";
 @use "parts/_form";
 @use "parts/_bnr";
+@use "parts/_cta";
+@use "parts/_js";
 //@use "parts/_card";
 //@use "parts/_noneandonly";
 //@use "parts/_modal";
 //@use "parts/_youtube";
-//@use "parts/_swiper";
+@use "parts/_swiper";
 //@use "parts/_other";
 //@use "parts/_block";
 
@@ -62,6 +64,7 @@
 //=====================================================
 // ※ bodyにclassを付ける。 body.page--hoge <= class名は {'page' + '__' + 'ページディレクトリ名、またはarchiveやsingleなどの共通して使う雛形名。ディレクトリ単位で切り分ける時は（例えば、https://seisei.top/company/profile/） class="page__company--profile" のように '--'で繋げる'}
 @use "page/_home";
+@use "page/_article";
 
 // DEV用
 //=====================================================
