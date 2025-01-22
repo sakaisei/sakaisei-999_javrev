@@ -64,9 +64,6 @@ if (/Windows|Macintosh|Linux|X11/i.test(navigator.userAgent)) {
   window.addEventListener('resize', setHeight2);
 }
 
-
-
-
 // g-nav modal
 //=====================================================
 document.addEventListener('DOMContentLoaded', function () {
@@ -154,15 +151,45 @@ document.addEventListener('DOMContentLoaded', function () {
   closeBtn.addEventListener('click', closeSearchModal);
 });
 
+// カードのhover要素
+//=====================================================
+document.querySelectorAll('.card__normal').forEach(function(card) {
+  const button = card.querySelector('.btn__normal .btn');
+  const link = card.querySelector('.link');
+  
+  if (button && link) {
+    button.addEventListener('mouseover', function() {
+      link.classList.add('is--hover');
+    });
+    button.addEventListener('mouseout', function() {
+      link.classList.remove('is--hover');
+    });
+  }
+});
+
 // js--acmenu
 //=====================================================
-$(function () {
-  // タイトルをクリックすると
-  $('.js--acmenu').on('click', function () {
-    $(this).next().slideToggle(300);
-    $(this).toggleClass('is--open', 300);
+document.addEventListener('DOMContentLoaded', () => {
+  const accordionMenus = document.querySelectorAll('.js--acmenu');
+
+  accordionMenus.forEach((menu) => {
+    const [trigger, content] = menu.children; // 最初の要素と2番目の要素を取得
+
+    // トリガーにクリックイベントを追加
+    trigger.addEventListener('click', () => {
+      const isOpen = menu.classList.toggle('is--open'); // クラスのトグル
+
+      if (isOpen) {
+        // 開く処理
+        content.style.maxHeight = content.scrollHeight + 'px';
+      } else {
+        // 閉じる処理
+        content.style.maxHeight = '0';
+      }
+    });
   });
 });
+//　.js--acmenu-content というclassを、二番目の要素（開閉要素）にかならず書く
 
 // scroll smoos
 //=====================================================
@@ -215,20 +242,6 @@ $(function(){
   }).closest('li').addClass('is--current'); // `li` 要素にクラスを付与
 });
 
-
-
-
-
-// flex spacebetween対策
-//=====================================================
-$(function(){
-  var elem = "";
-  for (var i = -1; ++i < 3;) {
-    elem += '<span class="empty"></span>';
-  }
-  $('.emptybox').append(elem);
-});
-
 // aタグの中でリンクを機能させたい場合
 //=====================================================
 $('.js--link').on('click', function(e){
@@ -273,12 +286,108 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 });
 
+// 画像で縦アスペクト比を判定 ※親に.js--contain-imgは付与すること！
+// ==============================
+document.addEventListener('DOMContentLoaded', function () {
+  const slides = document.querySelectorAll('.js--contain-img'); // 画像を含むスライドを取得
 
+  slides.forEach((slide) => {
+    const img = slide.querySelector('img'); // スライド内の画像を取得
 
+    if (img) {
+      if (img.complete) {
+        processImageAspect(img);
+      } else {
+        img.onload = function () {
+          processImageAspect(img);
+        };
+      }
+    }
+  });
 
+  // 画像のアスペクト比のみを基準に判定
+  function processImageAspect(img) {
+    const imageAspectRatio = img.naturalWidth / img.naturalHeight; // 画像のアスペクト比
+
+    // 任意のアスペクト比基準で縦長画像を判定
+    if (imageAspectRatio < 1) { // アスペクト比が1未満なら縦長と判定
+      img.classList.add('is--contain');
+    }
+  }
+});
+
+// ツールチップ
+// ==============================
+document.addEventListener('DOMContentLoaded', () => {
+  const tooltipTriggers = document.querySelectorAll('.js--tooltip');
+
+  tooltipTriggers.forEach(trigger => {
+    const icon = trigger.querySelector('.icon');
+    const tooltip = trigger.querySelector('.tooltip');
+    const closeButton = tooltip.querySelector('.tooltip-close');
+
+    // ツールチップをトグル表示
+    icon.addEventListener('click', (e) => {
+      e.stopPropagation();
+      document.querySelectorAll('.js--tooltip.is--visible').forEach(el => {
+        if (el !== trigger) el.classList.remove('is--visible');
+      });
+      trigger.classList.toggle('is--visible');
+    });
+
+    // ×ボタンでツールチップを閉じる
+    closeButton.addEventListener('click', () => {
+      trigger.classList.remove('is--visible');
+    });
+  });
+
+  // 外部クリックでツールチップを閉じる
+  document.addEventListener('click', () => {
+    document.querySelectorAll('.js--tooltip.is--visible').forEach(el => {
+      el.classList.remove('is--visible');
+    });
+  });
+});
+
+// テキストコピー　+　トースト通知
+// ==============================
+document.addEventListener('DOMContentLoaded', () => {
+  const copyContainers = document.querySelectorAll('.js--copy');
+
+  copyContainers.forEach(container => {
+    const copyButton = container.querySelector('.js--copybtn');
+    const toastContainer = container.querySelector('.js--copycontent');
+    const successMessage = toastContainer.dataset.messageSuccess;
+    const errorMessage = toastContainer.dataset.messageError;
+
+    copyButton.addEventListener('click', () => {
+      const textToCopy = copyButton.getAttribute('aria-label');
+
+      navigator.clipboard.writeText(textToCopy).then(() => {
+        showToast(successMessage, toastContainer);
+      }).catch(() => {
+        showToast(errorMessage, toastContainer);
+      });
+    });
+  });
+
+  function showToast(message, container) {
+    const toast = document.createElement('div');
+    toast.className = 'toast';
+    toast.textContent = message;
+    container.appendChild(toast);
+
+    setTimeout(() => toast.classList.add('is--visible'), 100);
+    setTimeout(() => {
+      toast.classList.remove('is--visible');
+      toast.addEventListener('transitionend', () => toast.remove());
+    }, 3000);
+  }
+});
 
 // swiper
 // ==============================
+// カード
 document.addEventListener('DOMContentLoaded', function () {
   // すべてのカードを取得
   const cards = document.querySelectorAll('.card__normal');
@@ -312,6 +421,79 @@ document.addEventListener('DOMContentLoaded', function () {
     }
   });
 });
+
+// articleのfv
+document.addEventListener('DOMContentLoaded', function () {
+  const mainSliderElement = document.querySelector('.swiper.article__mainslider');
+  const thumbSliderElement = document.querySelector('.swiper.article__tmbslider');
+
+  if (mainSliderElement && thumbSliderElement) {
+    // サムネイルスライダーの初期化
+    const thumbSlider = new Swiper(thumbSliderElement, {
+      spaceBetween: 5,
+      slidesPerView: 3.5,
+      watchSlidesProgress: true,
+      slideToClickedSlide: true,
+      preventClicks: true,
+      preventClicksPropagation: true,
+      freeMode: true,
+      freeModeMomentum: true,
+      freeModeMomentumRatio: 1.5,
+      freeModeMomentumBounce: true,
+      freeModeMomentumBounceRatio: 0.75,
+      breakpoints: {
+        // 667px以上の場合の設定
+        667: {
+          slidesPerView: 4.7, // サムネイルの表示数を変更
+          spaceBetween: 8, // スペースを広く
+        },
+        // // 1024px以上の場合の設定
+        // 1024: {
+        //   slidesPerView: 6, // サムネイルの表示数をさらに変更
+        //   spaceBetween: 15, // スペースをさらに広く
+        // },
+      },
+    });
+
+    // メインスライダーの初期化
+    const mainSlider = new Swiper(mainSliderElement, {
+      navigation: {
+        nextEl: '.article__mainslider-next',
+        prevEl: '.article__mainslider-prev',
+      },
+      thumbs: {
+        swiper: thumbSlider,
+      },
+      on: {
+        init: function () {
+          updateSlideCounter(this); // 初期化時にカウンターを更新
+        },
+        slideChange: function () {
+          updateSlideCounter(this); // スライド変更時にカウンターを更新
+        },
+      },
+    });
+
+    // サムネイルスライダーのアクティブ要素を左側に固定
+    mainSlider.on('slideChange', function () {
+      const activeIndex = mainSlider.activeIndex;
+      thumbSlider.slideTo(activeIndex); // サムネイルスライダーを現在のスライド位置に移動
+    });
+
+    // スライド番号を更新する関数
+    function updateSlideCounter(slider) {
+      const currentSlide = slider.activeIndex + 1; // 現在のスライド番号（0始まりなので+1）
+      const totalSlides = slider.slides.length; // 総スライド数
+      document.querySelector('.swiper-pagination-current').textContent = currentSlide;
+      document.querySelector('.swiper-pagination-total').textContent = totalSlides;
+    }
+  }
+});
+
+
+
+
+
 
 
 // const swiperfv = new Swiper('.js--swiper-fv', {
@@ -447,86 +629,86 @@ document.addEventListener('DOMContentLoaded', function () {
 
 // swiper02
 //=====================================================
-const swiperSlides02 = document.getElementsByClassName("swiper-slide");
-const breakPoint02 = 1024; // ブレークポイントを設定
-let swiper02;
-let swiperBool02;
+// const swiperSlides02 = document.getElementsByClassName("swiper-slide");
+// const breakPoint02 = 1024; // ブレークポイントを設定
+// let swiper02;
+// let swiperBool02;
 
-window.addEventListener(
-  "load",
-  () => {
-    if (breakPoint02 < window.innerWidth) {
-      swiperBool02 = false;
-    } else {
-      createSwiper02();
-      swiperBool02 = true;
-    }
-  },
-  false
-);
+// window.addEventListener(
+//   "load",
+//   () => {
+//     if (breakPoint02 < window.innerWidth) {
+//       swiperBool02 = false;
+//     } else {
+//       createSwiper02();
+//       swiperBool02 = true;
+//     }
+//   },
+//   false
+// );
 
-window.addEventListener(
-  "resize",
-  () => {
-    if (breakPoint02 < window.innerWidth && swiperBool02) {
-      swiper02.destroy(false, true);
-      swiperBool02 = false;
-    } else if (breakPoint02 >= window.innerWidth && !swiperBool02) {
-      createSwiper02();
-      swiperBool02 = true;
-    }
-  },
-  false
-);
+// window.addEventListener(
+//   "resize",
+//   () => {
+//     if (breakPoint02 < window.innerWidth && swiperBool02) {
+//       swiper02.destroy(false, true);
+//       swiperBool02 = false;
+//     } else if (breakPoint02 >= window.innerWidth && !swiperBool02) {
+//       createSwiper02();
+//       swiperBool02 = true;
+//     }
+//   },
+//   false
+// );
 
-const createSwiper02 = () => {
-  swiper02 = new Swiper(".js--swiper-sponly", {
-    speed: 500,
-    slidesPerView: 1.35,
-    spaceBetween: 20,
-    pagination: {
-      el: ".js--swiper-pagination",
-    },
-    breakpoints: {
-      640: {
-        loop: false,
-        slidesPerView: 1.65,
-        spaceBetween: 25,
-        centeredSlides: false
-      },
-      768: {
-        loop: false,
-        slidesPerView: 2.2,
-        spaceBetween: 30,
-        centeredSlides: false
-      },
-      1024: {
-        loop: true,
-        slidesPerView: 3,
-        spaceBetween: 0,
-        centeredSlides: false
-      },
-      1100: {
-        loop: true,
-        slidesPerView: 3.6,
-        spaceBetween: 0,
-        centeredSlides: false
-      },
-      1280: {
-        loop: true,
-        slidesPerView: 3.2,
-        spaceBetween: 0,
-        centeredSlides: false
-      },
-      1680: {
-        loop: true,
-        slidesPerView: 4.2,
-        spaceBetween: 0,
-        centeredSlides: false
-      }
-    }
-  });
-};
+// const createSwiper02 = () => {
+//   swiper02 = new Swiper(".js--swiper-sponly", {
+//     speed: 500,
+//     slidesPerView: 1.35,
+//     spaceBetween: 20,
+//     pagination: {
+//       el: ".js--swiper-pagination",
+//     },
+//     breakpoints: {
+//       640: {
+//         loop: false,
+//         slidesPerView: 1.65,
+//         spaceBetween: 25,
+//         centeredSlides: false
+//       },
+//       768: {
+//         loop: false,
+//         slidesPerView: 2.2,
+//         spaceBetween: 30,
+//         centeredSlides: false
+//       },
+//       1024: {
+//         loop: true,
+//         slidesPerView: 3,
+//         spaceBetween: 0,
+//         centeredSlides: false
+//       },
+//       1100: {
+//         loop: true,
+//         slidesPerView: 3.6,
+//         spaceBetween: 0,
+//         centeredSlides: false
+//       },
+//       1280: {
+//         loop: true,
+//         slidesPerView: 3.2,
+//         spaceBetween: 0,
+//         centeredSlides: false
+//       },
+//       1680: {
+//         loop: true,
+//         slidesPerView: 4.2,
+//         spaceBetween: 0,
+//         centeredSlides: false
+//       }
+//     }
+//   });
+// };
 
 // scroll add class
 //=====================================================

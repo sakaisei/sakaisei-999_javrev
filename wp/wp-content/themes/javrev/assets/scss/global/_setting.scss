@@ -8,9 +8,12 @@
 //=====================================================
 :root {
   --pri: #B90000;
+  --secon: #E58D00;
   --cta: #199D42;
   --act: #0064B9;
   --rate: #EDBF00;
+  --good: #63BC63;
+  --bad: #D07464;
   --white: #F6F6F6;
   --white-fff: #FFF;
   --black: #000;
@@ -20,14 +23,18 @@
   --gray-2: #9F9F9F;
   --gray-3: #707070;
   --gray-light: #C6C6C6;
+  --gray-light-2: #BCBCBC;
   --gray-dark: #343434;
 }
 
 $color: (
   pri: var(--pri),
+  secon: var(--secon),
   cta: var(--cta),
   act: var(--act),
   rate: var(--rate),
+  good: var(--good),
+  bad: var(--bad),
   white: var(--white),
   white-fff: var(--white-fff),
   black: var(--black),
@@ -37,6 +44,7 @@ $color: (
   gray-2: var(--gray-2),
   gray-3: var(--gray-3),
   gray-light: var(--gray-light),
+  gray-light-2: var(--gray-light-2),
   gray-dark: var(--gray-dark),
 );
 

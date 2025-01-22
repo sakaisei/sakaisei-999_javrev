@@ -13,14 +13,14 @@
         </div>
       </div>
       <div class="quality">
-        <ul class="btn__tag large">
+        <ul class="btn__tag">
           <li class="tag black alpha">HD</li>
           <li class="tag black alpha">VR</li>
         </ul>
       </div>
       <div class="playtime">
-        <ul class="btn__tag large">
-          <li class="tag black alpha" data-duration="PT1H26M12S">1時間26分</li>
+        <ul class="btn__tag">
+          <li class="tag black alpha pointer-events-none" data-duration="PT1H26M12S">1時間26分</li>
         </ul>
       </div>
     </div>

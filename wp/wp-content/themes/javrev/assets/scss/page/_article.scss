@@ -1,0 +1,183 @@
+@use "../global/_setting" as *;
+
+// .article__wrap
+//=====================================================
+.article__wrap {
+  overflow: hidden;
+}
+
+// .article__header
+//=====================================================
+.article__header {
+  display: flex;
+  flex-direction: column;
+  .ttl__article {
+    order: 3;
+  }
+  .cta__small {
+    order: 2;
+  }
+  .swiper__fv {
+    order: 1;
+  }
+  .list__meta {
+    order: 4;
+  }
+}
+
+// .article__the_contents
+//=====================================================
+.article__the_contents {
+  .inner-layout {
+    padding: clamp(110px*0.5, 110/750*100vw, 11rem*0.5) 0;
+    @include media(tb) {
+      padding: clamp(110px*0.8, 110/750*100vw, 11rem*0.8) 0;
+    }
+    @include media(pc) {
+      padding: 9rem 0 12rem;
+    }
+  }
+  .sec {
+    margin-bottom: clamp(140px*0.6, 140/750*100vw, 14rem*0.8);
+    // @include media(tb) {
+    //   margin-bottom: clamp(110px*0.8, 110/750*100vw, 11rem*0.8);
+    // }
+    @include media(pc) {
+      margin-bottom: 12.8rem;
+    }
+    &:last-of-type {
+      margin-bottom: 0;
+    }
+  }
+  h2 {
+    font-size: clamp(36px*0.5, 34/750*100vw, 3.6rem*0.7);
+    line-height: 1.65;
+    margin-bottom: 0.5em;
+    margin-top: 3.6em;
+    @include media(pc) {
+      font-size: 2.8rem;
+    }
+    &:first-of-type {
+      margin-top: 0;
+    }
+  }
+  h3 {
+    font-size: clamp(30px*0.5, 28/750*100vw, 3rem*0.6);
+    line-height: 1.65;
+    @include media(pc) {
+      font-size: 2.4rem;
+    }
+  }
+  h4 {
+    font-size: clamp(26px*0.5, 24/750*100vw, 2.6rem*0.6);
+    line-height: 1.65;
+    @include media(pc) {
+      font-size: 2rem;
+    }
+  }
+  p {
+    font-size: clamp(30px*0.5, 27/750*100vw, 3rem*0.6);
+    line-height: 2;
+    margin-bottom: 2em;
+    @include media(pc) {
+      font-size: 1.8rem;
+    }
+  }
+  .img {
+    font-size: clamp(28px*0.5, 26/750*100vw, 2.8rem*0.6);
+    margin-top: 2em;
+    margin-bottom: 2em;
+    @include media(pc) {
+      font-size: 1.5rem;
+    }
+    figcaption {
+      font-size: clamp(24px*0.5, 22/750*100vw, 2.4rem*0.6);
+      line-height: 1.4;
+      margin-top: 0.65em;
+      @include media(pc) {
+        font-size: 1.5rem;
+      }
+    }
+    img {
+      width: 100%;
+    }
+    &.col2 {
+      display: flex;
+      flex-direction: column;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      gap: 2em;
+      @include media(tb) {
+        gap: 3%;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+  }
+  .conversation {
+    font-size: clamp(28px*0.5, 28/750*100vw, 2.8rem*0.65);
+    margin: 3em 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.75em 0;
+    @include media(pc) {
+      font-size: 1.9rem;
+    }
+    .dialog {
+      display: flex;
+      align-items: center;
+      figure {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        width: clamp(140px*0.5, 140/750*100vw, 14rem*0.65);
+        flex-shrink: 0;
+        @include media(pc) {
+          width: 10rem;
+        }
+      }
+      .iconwrap {
+        display: block;
+        border-radius: 50%;
+        overflow: hidden;
+        border: solid 1px colors(gray-dark);
+      }
+      img {
+        width: clamp(88px*0.5, 88/750*100vw, 8.8rem*0.65);
+        @include media(pc) {
+          width: 6rem;
+        }
+      }
+      figcaption {
+        font-size: clamp(20px*0.5, 18/750*100vw, 2rem*0.65);
+        margin-top: 0.75em;
+        @include media(pc) {
+          font-size: 1.3rem;
+        }
+      }
+      p {
+        line-height: 2;
+        margin-bottom: 0;
+        margin-top: -0.75em;
+        margin-left: 1em;
+        margin-right: 1em;
+        font-size: clamp(30px*0.5, 28/750*100vw, 3rem*0.6);
+        @include media(pc) {
+          font-size: 1.9rem;
+        }
+      }
+    }
+  }
+  
+  // img {
+  //   font-size: clamp(36px*0.5, 36/750*100vw, 3.6rem*0.5);
+  //   margin-top: 3.6em;
+  // }
+}
+
+// .article__footer
+//=====================================================
+.article__footer {
+  background: colors(black-light);
+}

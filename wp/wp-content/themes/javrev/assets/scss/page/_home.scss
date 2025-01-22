@@ -34,17 +34,56 @@
         background-image: url(../img/page/home/fv--tb@2x.jpg);
       }
     }
+    @include media(pc) {
+      aspect-ratio: inherit;
+      width: 100%;
+      height: clamp(620px, 70vh, 660px);
+      background-size: clamp(144rem 68rem, cover, cover);
+      background-position: center center;
+      background-repeat: no-repeat;
+      background-image: url(../img/page/home/fv--pc.jpg);
+      @include media-2x {
+        background-image: url(../img/page/home/fv--pc@2x.jpg);
+      }
+    }
+    @include media(pc-l) {
+      height: clamp(650px, 70vh, 700px);
+    }
+    @include media(pc-xl) {
+      height: clamp(680px, 70vh, 750px);
+    }
+    @include media(pc-2xl) {
+      height: clamp(680px, 70vh, 800px);
+      background-image: url(../img/page/home/fv--pclarge.jpg);
+      @include media-2x {
+        background-image: url(../img/page/home/fv--pclarge@2x.jpg);
+      }
+    }
     .inner-layout {
       width: 93%;
       margin-inline: auto;
       position: relative;
-      @include z-index-2;
+      @include z-index-3;
       margin-top: 14vw;
+      @include media(tb) {
+        margin-top: 5vw;
+        width: min(100% - (35px * 2), 124rem);
+      }
+      @include media(pc) {
+        margin-top: 56px;
+        width: min(100% - (50px * 2), 124rem);
+      }
+      @include media(pc-2xl) {
+        width: min(100% - (20px*2), 124rem);
+      }
     }
     .mainttl {
       font-size: min(48/750*100vw, 4.8rem);
       @include media(tb) {
-        font-size: min(48/750*100vw*0.7, 4.8rem*0.6);
+        font-size: min(48/750*100vw*0.7, 4.8rem*0.8);
+      }
+      @include media(pc) {
+        font-size: 4.2rem;
       }
       h1 {
         line-height: 1.65;
@@ -59,6 +98,9 @@
         @include media(tb) {
           font-size: min(32/750*100vw*0.7, 3.2rem*0.6);
         }
+        @include media(pc) {
+          font-size: 2rem;
+        }
       }
     }
     .btnlayout {
@@ -72,8 +114,27 @@
         width: min(460/750*100vw, 46rem);
         margin-bottom: 0;
       }
+      @include media(pc) {
+        font-size: 1.8rem;
+        width: 50.2rem;
+      }
       .btn__normal {
         width: 48.5%;
+        @include media(pc) {
+          font-size: 1.8rem;
+        }
+      }
+    }
+    .inner-layout2 {
+      @include media(pc) {
+        width: min(100% - (20px * 2), 144rem);
+        height: 100%;
+        position: absolute;
+        //background: rgba(255, 0, 200, 0.5);
+        top: 0;
+        left: 50%;
+        transform: translateX(-50%);
+        @include z-index-2;
       }
     }
     .text {
@@ -82,11 +143,20 @@
       position: absolute;
       bottom: 15px;
       right: 3.5%;
-      font-size: min(22/750*100vw, 2.2rem);
+      font-size: min(24/750*100vw, 2.4rem*0.6);
       opacity: 0.7;
       @include media(tb) {
-        font-size: min(22/750*100vw*0.7, 2.2rem*0.55);
+        //font-size: min(24/750*100vw, 2.2rem*0.55);
+        bottom: clamp(84px*0.5 + 15px, 84/750*100vw + 15px, 8.4rem*0.5 + 15px);
       }
+      @include media(pc) {
+        font-size: 1.4rem;
+        right: 0;
+        bottom: 7rem;
+      }
+      // @include media(pc-2xl) {
+      //   right: 0;
+      // }
     }
     .iconr18 {
       position: relative;
@@ -100,9 +170,16 @@
       padding: 0.2em 0.4em;
       font-size: min(22/750*100vw, 2.2rem);
       @include media(tb) {
-        //top: calc(64px - 52px);
         font-size: min(22/750*100vw*0.7, 2.2rem*0.55);
       }
+      @include media(pc) {
+        top: calc(80px + 2rem);
+        left: 0;
+        font-size: 1.1rem;
+      }
+      // @include media(pc-2xl) {
+      //   left: 0;
+      // }
     }
     .iconjr {
       position: relative;
@@ -116,11 +193,18 @@
       @include backdrop-filter(blur(15px));
       background-color: rgba(255,255,255,0.35);
       @include media(tb) {
-        //top: calc(64px - 52px);
-        right: 3.5%;
         width: min(110/750*100vw*0.7, 11rem*0.55);
         height: min(110/750*100vw*0.7, 11rem*0.55);
       }
+      @include media(pc) {
+        top: calc(80px + 2rem);
+        right: 0;
+        width: 8.2rem;
+        height: 8.2rem;
+      }
+      // @include media(pc-2xl) {
+      //   right: 0;
+      // }
     }
     .fvbglayer {
       position: absolute;
@@ -131,9 +215,82 @@
       @include z-index-1;
       background: linear-gradient(to top, rgba(0, 0, 0, 0.65), rgba(0, 0, 0, 0));
     }
+    .newslayout {
+      width: 100%;
+      font-size: clamp(24px*0.5, 24/750*100vw, 2.4rem*0.5);
+      background: colors(black-light-2);
+      //padding: 1em 0;
+      height: clamp(84px*0.5, 84/750*100vw, 8.4rem*0.5);
+      position: absolute;
+      bottom: clamp(-84px*0.5, -84/750*100vw, -8.4rem*0.5);
+      left: 0;
+      display: flex;
+      align-items: center;
+      @include z-index-2;
+      @include media(tb) {
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.12);
+        @include backdrop-filter(blur(20px));
+      }
+      @include media(pc) {
+        height: 5.2rem;
+        font-size: min(16/1440*100vw, 1.6rem);
+      }
+      ul {
+        list-style: none;
+        width: 93%;
+        margin-inline: auto;
+        padding: 0;
+        @include media(pc) {
+          width: min(100% - (20px * 2), 124rem);
+        }
+      }
+      li {
+        display: flex;
+        align-items: center;
+      }
+      a {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: inherit;
+        width: 100%;
+        gap: 1em;
+        transition: 0.2s;
+        @include media(tb) {
+          width: fit-content;
+        }
+        &:hover {
+          opacity: 0.7;
+        }
+      }
+      time {}
+      .newtag {
+        background: colors(pri);
+        //color: colors(white);
+        font-weight: bold;
+        padding: 0.3em 0.8em;
+        border-radius: 100px;
+        font-size: 0.75em;
+      }
+      .newstext {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        flex: 1;
+      }
+    }
+    
   }
 
-
+  // .contents
+  //=====================================================
+  .contents {
+    padding-top: clamp(84px*0.5, 84/750*100vw, 8.4rem*0.5);
+    @include media(pc) {
+      padding-top: 0;
+    }
+  }
 
 
 

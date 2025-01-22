@@ -13,6 +13,13 @@
   @include media(tb) {
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 4.4em;
+  }
+  @include media(tb) {
+    font-size: clamp(26px*0.5, 26/750*100vw, 2.6rem*0.55);
+  }
+  @include media(pc) {
+    font-size: 1.6rem;
   }
 }
 
@@ -21,7 +28,7 @@
 .bnr__textbnr {
   width: 100%;
   @include media(tb) {
-    width: 48.5%;
+    width: 49%;
   }
   a {
     display: flex;
@@ -29,20 +36,44 @@
     align-items: center;
     border: solid 1px colors(gray-3);
     border-radius: clamp(30px*0.5, 30/750*100vw, 3rem*0.5);
-    padding: 1.25em 1em;
-    &:before {
-      margin: 0 1.4em 0 0.5em;
+    padding: 1.5em 1em;
+    transition: 0.2s;
+    @include media(tb) {
+      align-items: flex-start;
+      height: 100%;
     }
-    &:after {
-      content: "";
-      display: block;
-      width: 1.5em;
-      height: 1.5em;
-      flex-shrink: 0;
-      margin-right: 0.35em;
-      margin-left: auto;
-      @include mask("../img/common/icon-arrow-right.svg");
-      background: colors(white);
+    @include media(tb-l) {
+      border-radius: clamp(30px*0.5, 30/750*100vw, 3rem*0.55);
+    }
+    @include media(pc) {
+      border-radius: 1.5rem;
+      padding: 2.25em 1.5em;
+    }
+    &.icon__normal {
+      &:before {
+        margin: 0 1.4em 0 0.5em;
+        @include media(tb) {
+          margin: auto 1.4em auto 0.5em;
+        }
+      }
+      &:after {
+        content: "";
+        display: block;
+        width: 1.5em;
+        height: 1.5em;
+        flex-shrink: 0;
+        margin-right: 0.35em;
+        margin-left: auto;
+        @include mask("../img/common/icon-arrow-right.svg");
+        background: colors(white);
+        @include media(tb) {
+          margin-top: auto;
+          margin-bottom: auto;
+        }
+      }
+    }
+    &:hover {
+      opacity: 0.7;
     }
   }
   .layout {
@@ -54,7 +85,15 @@
     display: flex;
     align-items: center;
     font-weight: 700;
-    margin-bottom: 0.35em;
+    margin-bottom: 0.4em;
+    line-height: 1.2;
+    @include media(tb-l) {
+      font-size: clamp(32px*0.5, 32/750*100vw, 3.2rem*0.55);
+    }
+    @include media(pc) {
+      font-size: 1.8rem;
+      //margin-bottom: 0.75em;
+    }
   }
   .pri {
     font-size: clamp(20px*0.5, 20/750*100vw, 2rem*0.5);
@@ -65,10 +104,24 @@
     display: block;
     margin-left: 0.5em;
     font-weight: 400;
+    flex-shrink: 0;
+    @include media(tb-l) {
+      font-size: clamp(20px*0.5, 20/750*100vw, 2rem*0.55);
+    }
+    @include media(pc) {
+      font-size: 1.3rem;
+    }
   }
   .text {
     line-height: 1.5;
     color: colors(gray-light);
     margin-right: 0.75em;
+    font-size: clamp(26px*0.5, 26/750*100vw, 2.6rem*0.5);
+    @include media(tb-l) {
+      font-size: clamp(26px*0.5, 26/750*100vw, 2.6rem*0.55);
+    }
+    @include media(pc) {
+      font-size: 1.6rem;
+    }
   }
 }

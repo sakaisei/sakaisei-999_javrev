@@ -11,7 +11,10 @@
   border-radius: 100px;
   display: flex;
   align-items: center;
-  max-width: 48rem;
+  max-width: 90rem;
+  @include media(pc) {
+    padding: 10px;
+  }
   input[type="text"] {
     width: 100%;
     padding: 10px 48px 10px 16px;
@@ -47,5 +50,8 @@
   }
   &.gnav {
     width: 93%;
+    @include media(pc) {
+      padding: 3px;
+    }
   }
 }

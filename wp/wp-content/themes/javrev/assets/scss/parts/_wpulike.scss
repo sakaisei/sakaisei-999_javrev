@@ -1,0 +1,68 @@
+@use "../global/_setting" as *;
+
+// .wpulike articleページのタイトル直上のボタン
+//=====================================================
+.wpulike {
+  padding: 0;
+  line-height: 0;
+  .wp_ulike_general_class {
+    background: colors(good);
+    border-radius: 100px;
+  }
+  button {
+    &.wp_ulike_btn {
+      background: none;
+      min-height: 26px;
+      min-width: 26px;
+      height: 26px;
+      width: 38px;
+      padding: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-radius: 100px;
+      // &:focus,
+      // &:hover {
+      //   background-color: transparent;
+      // }
+    }
+  }
+  &.wpulike-default {
+    .count-box {
+      background: none;
+      box-shadow: none;
+      font-size: 12px;
+      margin-left: 0;
+      line-height: 26px;
+      padding: 0 16px 0 0;
+      color: colors(white);
+      &:before {
+        content: none;
+      }
+    }
+    .wp_ulike_put_image {
+      &:after {
+        //content: none;
+        // background-image: url(../img/common/icon-good.svg);
+        // background-size: contain;
+        // background-repeat: no-repeat;
+        // background-position: center center;
+        background: none;
+        position: static;
+        transform: none;
+        width: 68%;
+        height: 68%;
+        filter: none;
+        margin-left: 8px;
+        background: colors(white);
+        @include mask("../img/common/icon-good.svg");
+      }
+    }
+  }
+}
+button.wp_ulike_btn:disabled:active, .wpulike-default button.wp_ulike_btn:disabled:focus, .wpulike-default button.wp_ulike_btn:disabled:hover, .wpulike-default button.wp_ulike_btn[disabled=disabled]:active, .wpulike-default button.wp_ulike_btn[disabled=disabled]:focus, .wpulike-default button.wp_ulike_btn[disabled=disabled]:hover {
+  background-color: transparent;
+}
+.wpulike-default button.wp_ulike_btn:focus, .wpulike-default button.wp_ulike_btn:hover {
+  background-color: transparent;
+}

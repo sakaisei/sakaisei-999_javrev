@@ -3,7 +3,14 @@
 // .common__main
 //=====================================================
 .main__common {
-  overflow-x: hidden;
+  //overflow-x: hidden;
   min-height: 100vh;
   min-height: 100dvh;
+  //padding: 200px;
+  &.margin-top {
+    margin-top: 52px;
+    @include media(pc) {
+      margin-top: 80px;
+    }
+  }
 }

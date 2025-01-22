@@ -92,15 +92,15 @@ remove_menu_page('edit.php');//投稿
 //remove_menu_page('edit.php?post_type=page');//固定ページ
 //remove_submenu_page('edit.php?post_type=page', 'edit.php?post_type=page');//固定ページ>固定ページ一覧
 //remove_submenu_page('edit.php?post_type=page', 'post-new.php?post_type=page');//固定ページ>新規追加
-remove_menu_page('edit-comments.php');//コメント
+//remove_menu_page('edit-comments.php');//コメント
 //remove_menu_page('separator2');//セパレータ2
 //remove_menu_page('themes.php');//外観
 //remove_submenu_page('themes.php', 'themes.php');//外観>テーマ
 //remove_submenu_page('themes.php', 'customize.php?return=%2Finformation%2Fwp-admin%2Fthemes.php');//外観>カスタマイズ
-remove_submenu_page('themes.php', 'customize.php?return='. urlencode($_SERVER["REQUEST_URI"])); // 外観->カスタマイズ
-remove_submenu_page('themes.php', 'widgets.php');//外観>ウィジェット
-remove_submenu_page('themes.php', 'nav-menus.php');//外観>メニュー
-remove_submenu_page('themes.php', 'theme-editor.php');//外観>テーマの編集
+//remove_submenu_page('themes.php', 'customize.php?return='. urlencode($_SERVER["REQUEST_URI"])); // 外観->カスタマイズ
+//remove_submenu_page('themes.php', 'widgets.php');//外観>ウィジェット
+//remove_submenu_page('themes.php', 'nav-menus.php');//外観>メニュー
+//remove_submenu_page('themes.php', 'theme-editor.php');//外観>テーマの編集
 //remove_menu_page('plugins.php');//プラグイン
 //remove_submenu_page('plugins.php', 'plugins.php');//プラグイン>インストール済プラグイン
 //remove_submenu_page('plugins.php', 'plugin-install.php');//プラグイン>新規追加

@@ -3,7 +3,7 @@
     <a href="/" class="logolayout">
       <div class="footer__logo">
         <img src="<?php echo get_template_directory_uri(); ?>/assets/img/common/logo.svg" alt="JAVREV">
-        <span class="lang">JP</span>
+        <span class="lang"><?php echo lang('logo'); ?></span>
       </div>
       <p class="footer__read">さあ、動画の世界を体験しよう</p>
     </a>
@@ -19,5 +19,12 @@
   </div>
 </footer>
 <?php wp_footer();?>
+<style>
+  #query-monitor-main:not(.qm-show-right),
+  .otgs-development-site-front-end {
+    display: none !important;
+  }
+</style>
 </body>
 </html>
+<?php// get_template_part('assets/inc/dev/dev'); ?>

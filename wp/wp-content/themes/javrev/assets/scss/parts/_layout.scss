@@ -10,20 +10,66 @@
   }
 }
 
+// .layout__article
+//=====================================================
+.layout__article {
+  width: min(93%, 72rem);
+  margin-inline: auto;
+}
+
 // .layout__padding
 //=====================================================
 .layout__padding {
-  padding: clamp(78px*0.5, 78/750*100vw, 7.8rem*0.5) 0;
+  padding: clamp(78px*0.5, 78/750*100vw, 7.8rem*1) 0;
+  @include media(pc) {
+    padding: 8.6rem 0 12rem;
+  }
 }
 
+// .layout__paddingmedium
+//=====================================================
+.layout__paddingmedium {
+  padding: clamp(94px*0.5, 94/750*100vw, 9.4rem*0.5) 0;
+  @include media(pc) {
+    padding: 10.2rem 0;
+  }
+}
+
+// .layout__large
+//=====================================================
+.layout__large {
+  padding: clamp(110px*0.5, 110/750*100vw, 11rem*0.5) 0;
+  @include media(pc) {
+    padding: 12rem 0;
+  }
+}
+
+// .layout__margintop
+//=====================================================
+.layout__margintop {
+  margin-top: clamp(78px*0.5, 78/750*100vw, 7.8rem*0.5);
+  @include media(pc) {
+    margin-top: 8.6rem;
+  }
+}
+
+// .layout__sub
+//=====================================================
 .layout__sub {
   display: block;
   width: 100%;
-  font-size: clamp(28px*0.5, 28/750*100vw, 2.8rem*0.5);
+  font-size: clamp(26px*0.5, 24/750*100vw, 2.8rem*0.5);
   padding: clamp(56px*0.5, 56/750*100vw, 5.6rem*0.5) 0;
   background: colors(black-light);
   margin-bottom: 1px;
   @include media(tb) {
     padding: clamp(56px, 56/750*100vw, 5.6rem) 0;
+  }
+  @include media(pc) {
+    padding: 5.6rem 0;
+    font-size: 1.6rem;
+  }
+  &.bgblack {
+    background: colors(black);
   }
 }
