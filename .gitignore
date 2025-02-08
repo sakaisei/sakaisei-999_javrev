@@ -19,32 +19,33 @@ node_modules/
 package-lock.json
 package.json
 dev/*
+old/
+
 
 #DEV_TEST/
 
 
 #wordpress gitの除外ファイル
-/game/*
-/wp/*
-!/wp/favicon.ico
-!/wp/google*.html
-!/wp/wp-content
-/wp/wp-content/*
-!/wp/wp-content/themes
-/wp/wp-content/themes/*
-!/wp/wp-content/themes/javrev
-!/wp/wp-content/ai1wm-backups/
-/wp/wp-content/ai1wm-backups/index.html
-/wp/wp-content/ai1wm-backups/index.php
-/wp/wp-content/ai1wm-backups/.htaccess
-/wp/wp-content/ai1wm-backups/web.config
-/wp/wp-content/ai1wm-backups/robots.txt
-!/wp/wp-content/ai1wm-backups/*.wpress
-!/wp/wp-content/uploads
-/wp/wp-content/uploads/mw-wp-form_uploads
-/wp/wp-content/uploads/cache
-/wp/wp-content/uploads/wpo
-/wp/wp-content/uploads/wpcf7_uploads
+/*
+!/favicon.ico
+!/google*.html
+!/wp-content
+/wp-content/*
+!/wp-content/themes
+/wp-content/themes/*
+!/wp-content/themes/javrev
+!/wp-content/ai1wm-backups/
+/wp-content/ai1wm-backups/index.html
+/wp-content/ai1wm-backups/index.php
+/wp-content/ai1wm-backups/.htaccess
+/wp-content/ai1wm-backups/web.config
+/wp-content/ai1wm-backups/robots.txt
+!/wp-content/ai1wm-backups/*.wpress
+!/wp-content/uploads
+/wp-content/uploads/mw-wp-form_uploads
+/wp-content/uploads/cache
+/wp-content/uploads/wpo
+/wp-content/uploads/wpcf7_uploads
 .htaccess
 
 

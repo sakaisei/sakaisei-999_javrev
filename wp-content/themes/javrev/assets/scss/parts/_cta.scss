@@ -1,0 +1,198 @@
+@use "../global/_setting" as *;
+
+// .cta__small
+//=====================================================
+.cta__small {
+  margin: clamp(52px*0.5, 52/750*100vw, 5.2rem*0.7) 0;
+  @include media(pc) {
+    margin: 4.4rem 0;
+  }
+  .details {
+    &.is--open {
+      .click {
+        margin-bottom: clamp(52px*0.5, 52/750*100vw, 5.2rem*0.7);
+        @include media(pc) {
+          margin-bottom: 3.2rem;
+        }
+        .text {
+          &:after {
+            @include mask("../img/common/icon-remove.svg");
+          }
+        }
+      }
+    }
+  }
+  .click {
+    margin-top: clamp(52px*0.5, 52/750*100vw, 5.2rem*0.7);
+    font-size: clamp(26px*0.5, 26/750*100vw, 2.6rem*0.6);
+    font-weight: 700;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 0;
+    transition: 0.3s ease margin-bottom;
+    @include media(pc) {
+      margin-top: 3.2rem;
+      font-size: 1.8rem;
+    }
+    &:after {
+      content: "";
+      display: block;
+      background: colors(gray-dark);
+      //background: yellow;
+      width: 100%;
+      height: 2px;
+      position: absolute;
+      top: calc(50% - 1px);
+      left: 0;
+      @include z-index-1;
+    }
+    .text {
+      background: colors(black);
+      position: relative;
+      @include z-index-2;
+      padding: 0 1.85em;
+      width: fit-content;
+      cursor: pointer;
+    }
+  }
+  .cta-info {
+    background: colors(black-light);
+  }
+}
+
+// .cta__large
+//=====================================================
+.cta__large {
+  @include media(pc) {
+    width: 100%;
+  }
+  .ttllayout {
+    display: flex;
+    flex-direction: column;
+    h2 {
+      font-size: clamp(42px*0.5, 42/750*100vw, 4.2rem*0.8);
+      text-align: center;
+      line-height: 1.5;
+      order: 2;
+      margin: 0.85em 0;
+      // @include media(tb) {
+      //   font-size: clamp(42px*0.5, 42/750*100vw, 4.2rem*0.8);
+      // }
+      @include media(pc) {
+        font-size: 3.8rem;
+      }
+      br {
+        @include media(tb) {
+          display: none;
+        }
+      }
+    }
+    ul {
+      order: 1;
+      list-style: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: clamp(42px*0.5, 42/750*100vw, 4.2rem*0.6);
+      gap: 0 0.5em;
+      @include media(pc) {
+        font-size: 1.6rem;
+      }
+    }
+    li {
+      &.logo-javrev {
+        width: clamp(166px*0.5, 166/750*100vw, 16.6rem*0.6);
+        @include media(pc) {
+          width: 12.4rem;
+        }
+      }
+      &.logo-dev {
+        width: clamp(246px*0.5, 246/750*100vw, 24.6rem*0.6);
+        @include media(pc) {
+          width: 13.8rem;
+        }
+      }
+    }
+  }
+  .list__benefits {}
+  .highlighttext {
+    width: 100%;
+    font-size: clamp(30px*0.5, 30/750*100vw, 3rem*0.55);
+    margin: 1.75em 0;
+    @include media(tb) {
+      margin: 2.25em 0;
+    }
+    @include media(pc) {
+      margin: 3.25em 0;
+      font-size: 1.5rem;
+    }
+    p {
+      line-height: 2;
+      text-align: center;
+      br {
+        @include media(tb) {
+          display: none;
+        }
+      }
+    }
+  }
+  .btn__normal {}
+  .linkother {
+    display: flex;
+    align-items: center;
+    font-size: clamp(24px*0.5, 24/750*100vw, 2.4rem*0.6);
+    width: fit-content;
+    margin-inline: auto;
+    margin-top: 2em;
+    margin-bottom: 2em;
+    color: colors(gray);
+    font-weight: 700;
+    @include media(pc) {
+      font-size: 1.3rem;
+    }
+  }
+  .box {
+    background: colors(black-light-2);
+    font-size: clamp(26px*0.5, 26/750*100vw, 2.6rem*0.6);
+    margin-bottom: 2em;
+    border-radius: clamp(30px*0.5, 30/750*100vw, 3rem*0.6);
+    padding: 1.85em 2em;
+    @include media(tb) {
+      display: flex;
+    }
+    @include media(pc) {
+      margin-inline: auto;
+      width: 82.8rem;
+      font-size: 1.5rem;
+      border-radius: 1.5rem;
+    }
+    .ctaboxlogo {
+      margin-bottom: 1em;
+      @include media(tb) {
+        margin-bottom: 0;
+        flex-shrink: 0;
+      }
+      // ロゴ別
+      &.logo-dev {
+        width: clamp(200px*0.5, 200/750*100vw, 20rem*0.6);
+        @include media(pc) {
+          width: 15.4rem;
+        }
+      }
+    }
+    p {
+      line-height: 1.5;
+      @include media(tb) {
+        margin-left: 1.25em;
+        margin-top: 0.25em;
+      }
+    }
+  }
+  .list__asterisk {
+    @include media(pc) {
+      width: 82.8rem;
+      margin-inline: auto;
+    }
+  }
+}
